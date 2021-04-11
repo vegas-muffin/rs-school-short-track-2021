@@ -15,13 +15,16 @@
  * The result should be 9
  */
 function getMatrixElementsSum(/* matrix */) {
-let sum = 0;
-  matrix.flat(Infinity).forEach((element) => {
-    if (element > 0) {
-      sum += element;
+  const copyMatrix = matrix;
+  for (let i = 0; i < copyMatrix.length - 1; i++) {
+    for (let j = 0; j < copyMatrix[i].length; j++) {
+      console.log(copyMatrix[i][j]);
+      if (copyMatrix[i][j] === 0) {
+        copyMatrix[i + 1][j] = 0;
+      }
     }
-  });
-  return sum;
+  }
+  return copyMatrix.flat(Infinity).reduce((acc, cur) => (acc += cur));
 }
 
 module.exports = getMatrixElementsSum;
