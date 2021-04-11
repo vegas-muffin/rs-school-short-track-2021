@@ -15,7 +15,13 @@
  * The result should be 9
  */
 function getMatrixElementsSum(/* matrix */) {
-  throw new Error('Not implemented');
+let sum = 0;
+  matrix.flat(Infinity).forEach((element) => {
+    if (element > 0) {
+      sum += element;
+    }
+  });
+  return sum;
 }
 
 module.exports = getMatrixElementsSum;
